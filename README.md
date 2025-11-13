@@ -1,4 +1,4 @@
-# 🎮 User Story Game
+# 🎮 userSabrina
 
 Um jogo educativo para aprender histórias de usuário de forma interativa!
 
@@ -142,18 +142,26 @@ Este jogo foi desenvolvido para ensinar conceitos de **User Stories** de forma p
 - Critérios de aceite
 - Interação usuário-sistema
 
-## 📄 Licença
+## 👨‍💻 Autores
 
-Projeto educacional de código aberto.
+<p align="left">
+	<img width="100"
+	     	align="left"
+		alt="Gabriel"
+		src="https://i.imgur.com/4b3eRBA.png"
+		<br><br>
+		Meu nome é Gabriel Aires, natural de Palmas (TO). Estudo Engenharia de software no Centro Universitário Católica do Tocantins. Tenho como paixões jogar videogame, codar e ler.
+		<br><strong>Artes, Codificação, Documentação e Ideias</strong>
+</p>
 
-## 👨‍💻 Autor
+<br>
 
-Desenvolvido para fins educacionais.
-
-tree
-
-# Criar todas as pastas de uma vez (Linux/Mac)
-mkdir -p css js/data assets/background assets/sabrina/{idle-{right,left,up,down},walk-{right,left,up,down}}
-
-# Iniciar servidor
-python -m http.server 8000
+<p align="left">
+	<img width="100"
+	     	align="left"
+		alt="Jonathan"
+		src="https://i.imgur.com/Dek9BJr.png"
+		<br><br>
+		Meu nome é Jonathan Rodrigues. Atualmente, estudo Engenharia de software no Centro Universitário Católica do Tocantins. Tenho como paixões desenhar, jogar videogame, colocar o headphone no talo e programar.
+		<br><strong>Artes, Roteiro, Documentação e Ideias</strong>  
+</p>
