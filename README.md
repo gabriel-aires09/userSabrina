@@ -12,7 +12,7 @@ Este projeto é um jogo 2D onde o jogador controla um personagem e aprende sobre
 
 ### Opção 1: Acessar o projeto por meio do GitHub Pages
 
-Você pode acessar ao jogo por meio deste link: [Github Pages]([https://gabriel-aires09.github.io/origintomorow/](https://gabriel-aires09.github.io/userSabrina/)). Criamos uma branch própria hospedada no Github Pages para acesso e conhecimentos de desenvolvedores/estudantes de engenharia de software e áreas correlatas. Todos os novos recursos, mecânicas e funcionalidades serão também atualizadas neste link. Nossa intenção é apresentar nossas ideias, de maneira acessível, para outras pessoas interessadas no projeto.
+Você pode acessar ao jogo por meio deste link: [Github Pages](https://gabriel-aires09.github.io/userSabrina/). Criamos uma branch própria hospedada no Github Pages para acesso e conhecimentos de desenvolvedores/estudantes de engenharia de software e áreas correlatas. Todos os novos recursos, mecânicas e funcionalidades serão também atualizadas neste link. Nossa intenção é apresentar nossas ideias, de maneira acessível, para outras pessoas interessadas no projeto.
 
 ### Opção 2: Live Server (VS Code)
 1. Instale a extensão "Live Server"
