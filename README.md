@@ -4,26 +4,17 @@ Um jogo educativo para aprender histórias de usuário de forma interativa!
 
 <img width="1300" height="619" alt="image" src="https://github.com/user-attachments/assets/37c97894-5000-4ce7-9517-825552fa1ff6" />
 
-
 ## 📋 Descrição
 
 Este projeto é um jogo 2D onde o jogador controla um personagem e aprende sobre histórias de usuário (User Stories) através de interações com o cenário e objetos.
 
 ## 🚀 Como Executar
 
-### Opção 1: Servidor Local com Python
-```bash
-python -m http.server 8000
-```
-Acesse: `http://localhost:8000`
+### Opção 1: Acessar o projeto por meio do GitHub Pages
 
-### Opção 2: Servidor Local com Node.js
-```bash
-npx http-server
-```
-Acesse: `http://localhost:8080`
+Você pode acessar ao jogo por meio deste link: [Github Pages]([https://gabriel-aires09.github.io/origintomorow/](https://gabriel-aires09.github.io/userSabrina/)). Criamos uma branch própria hospedada no Github Pages para acesso e conhecimentos de desenvolvedores/estudantes de engenharia de software e áreas correlatas. Todos os novos recursos, mecânicas e funcionalidades serão também atualizadas neste link. Nossa intenção é apresentar nossas ideias, de maneira acessível, para outras pessoas interessadas no projeto.
 
-### Opção 3: Live Server (VS Code)
+### Opção 2: Live Server (VS Code)
 1. Instale a extensão "Live Server"
 2. Clique com botão direito em `index.html`
 3. Selecione "Open with Live Server"
@@ -163,5 +154,5 @@ Este jogo foi desenvolvido para ensinar conceitos de **User Stories** de forma p
 		src="https://i.imgur.com/Dek9BJr.png"
 		<br><br>
 		Meu nome é Jonathan Rodrigues. Atualmente, estudo Engenharia de software no Centro Universitário Católica do Tocantins. Tenho como paixões desenhar, jogar videogame, colocar o headphone no talo e programar.
-		<br><strong>Artes, Roteiro, Documentação e Ideias</strong>  
+		<br><strong>Artes e Documentação</strong>  
 </p>
