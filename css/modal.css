@@ -127,3 +127,10 @@
     line-height: 1.5;
     padding-left: 0.5rem;
 }
+
+@media (max-width: 480px) {
+    .modal-content {
+        width: 95vw;
+        padding: 1rem;
+    }
+}

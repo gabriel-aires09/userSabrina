@@ -13,17 +13,32 @@ const gameState = {
 };
 
 let gameInitialized = false;
+const gameArea = document.querySelector('.game-area');
 
 // Renderizar Obstáculos
 function renderObstacles() {
     const container = document.getElementById('obstacles');
+    const gameArea = document.querySelector('.game-area');
+    const bounds = gameArea.getBoundingClientRect();
+
     container.innerHTML = '';
 
     obstacles.forEach(obstacle => {
+        // Mantém os itens confinados à .game-area: reposiciona qualquer
+        // obstáculo que extrapolaria a largura/altura real do container
+        // (ex.: quando a .story-panel reduz o espaço disponível).
+        const x = Math.max(0, Math.min(bounds.width - obstacle.width, obstacle.x));
+        const y = Math.max(0, Math.min(bounds.height - obstacle.height, obstacle.y));
+
+        // Atualiza os dados do obstáculo para que checkCollision() use a
+        // mesma posição que está sendo exibida na tela.
+        obstacle.x = x;
+        obstacle.y = y;
+
         const div = document.createElement('div');
         div.className = 'obstacle';
-        div.style.left = obstacle.x + 'px';
-        div.style.top = obstacle.y + 'px';
+        div.style.left = x + 'px';
+        div.style.top = y + 'px';
         div.style.width = obstacle.width + 'px';
         div.style.height = obstacle.height + 'px';
         div.dataset.type = obstacle.type;
@@ -122,6 +137,7 @@ function showStory(story, scenarios) {
 // Game Loop
 function gameLoop() {
     const speed = 3;
+    const bounds = gameArea.getBoundingClientRect();
     let newX = gameState.playerPos.x;
     let newY = gameState.playerPos.y;
     let action = '';
@@ -135,7 +151,7 @@ function gameLoop() {
         newDirection = 'left';
         moving = true;
         scenarios = [gameStories.moveLeft.scenarios[0]];
-        newX = Math.max(0, newX); // antes: 60 → agora pode ir até o limite esquerdo da tela
+        newX = Math.max(0, newX); // antes: 60 → agora pode ir até o limite esquerdo da .game-area
     }
 
     if (gameState.keys['arrowright'] || gameState.keys['d']) {
@@ -144,7 +160,7 @@ function gameLoop() {
         newDirection = 'right';
         moving = true;
         scenarios = [gameStories.moveRight.scenarios[0]];
-        newX = Math.min(window.innerWidth - 100, newX); // antes: -460 → permite andar mais à direita
+        newX = Math.min(bounds.width - 100, newX); // antes: window.innerWidth - 100 → agora respeita a largura real da .game-area
     }
 
     if (gameState.keys['arrowup'] || gameState.keys['w']) {
@@ -153,7 +169,7 @@ function gameLoop() {
         newDirection = 'up';
         moving = true;
         scenarios = [gameStories.moveUp.scenarios[0]];
-        newY = Math.max(0, newY); // antes: 320 → permite subir até o topo
+        newY = Math.max(0, newY); // antes: 320 → permite subir até o topo da .game-area
     }
 
     if (gameState.keys['arrowdown'] || gameState.keys['s']) {
@@ -162,8 +178,8 @@ function gameLoop() {
         newDirection = 'down';
         moving = true;
         scenarios = [gameStories.moveDown.scenarios[0]];
-        newY = Math.min(window.innerHeight - 80, newY); 
-        // antes: 520 → agora Sabrina pode ir até o final da tela
+        newY = Math.min(bounds.height - 80, newY);
+        // antes: window.innerHeight - 80 → agora respeita a altura real da .game-area
     }
 
     gameState.isMoving = moving;
@@ -224,6 +240,36 @@ document.addEventListener('keydown', (e) => {
 
 document.addEventListener('keyup', (e) => {
     gameState.keys[e.key.toLowerCase()] = false;
+});
+
+// Controles de Toque (mobile)
+document.querySelectorAll('.touch-btn').forEach((btn) => {
+    const key = btn.dataset.key;
+
+    const press = (e) => {
+        e.preventDefault();
+        gameState.keys[key] = true;
+    };
+    const release = (e) => {
+        e.preventDefault();
+        gameState.keys[key] = false;
+    };
+
+    btn.addEventListener('touchstart', press);
+    btn.addEventListener('touchend', release);
+    btn.addEventListener('touchcancel', release);
+    btn.addEventListener('mousedown', press);
+    btn.addEventListener('mouseup', release);
+    btn.addEventListener('mouseleave', release);
+});
+
+// Reclampar posição do player e dos obstáculos ao redimensionar/rotacionar a tela
+window.addEventListener('resize', () => {
+    const bounds = gameArea.getBoundingClientRect();
+    gameState.playerPos.x = Math.max(0, Math.min(bounds.width - 100, gameState.playerPos.x));
+    gameState.playerPos.y = Math.max(0, Math.min(bounds.height - 80, gameState.playerPos.y));
+    updatePlayerPosition(gameState.playerPos.x, gameState.playerPos.y);
+    renderObstacles();
 });
 
 // Inicializar

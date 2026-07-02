@@ -14,21 +14,16 @@ async function loadSprites() {
             
             for (let i = 1; i <= 10; i++) {
                 const path = `assets/sabrina/${folderPath}/${i}.png`;
-                try {
-                    const img = new Image();
+                const img = new Image();
+
+                const loaded = await new Promise((resolve) => {
+                    img.onload = () => resolve(true);
+                    img.onerror = () => resolve(false);
                     img.src = path;
-                    
-                    await new Promise((resolve, reject) => {
-                        img.onload = () => {
-                            newSprites[type][dir].push(path);
-                            resolve();
-                        };
-                        img.onerror = () => reject();
-                        setTimeout(reject, 100);
-                    });
-                } catch (error) {
-                    break;
-                }
+                });
+
+                if (!loaded) break;
+                newSprites[type][dir].push(path);
             }
         }
     }

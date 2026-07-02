@@ -35,7 +35,7 @@ body {
 }
 
 .menu-title {
-    font-size: 4rem;
+    font-size: clamp(2rem, 8vw, 4rem);
     font-weight: bold;
     margin-bottom: 1rem;
     text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
@@ -48,7 +48,7 @@ body {
 }
 
 .menu-subtitle {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 4vw, 1.5rem);
     margin-bottom: 3rem;
     opacity: 0.9;
 }
@@ -96,4 +96,10 @@ body {
     font-size: 0.875rem;
     opacity: 0.8;
     margin-top: 2rem;
+}
+
+@media (max-width: 480px) {
+    .menu-container {
+        padding: 1rem;
+    }
 }

@@ -21,6 +21,6 @@ function updatePlayerSprite(gameState) {
 
 function updatePlayerPosition(x, y) {
     const player = document.getElementById('player');
-    player.style.left = (x - 48) + 'px';
-    player.style.top = (y - 72) + 'px';
+    player.style.left = (x - player.offsetWidth / 2) + 'px';
+    player.style.top = (y - player.offsetHeight / 2) + 'px';
 }
